@@ -11,13 +11,13 @@
 
 #Envía los datos a zabbix
 Function zabbix_sender($a){
-    C:\Zabbix\scripts\zabbix_sender.exe -z 192.168.120.152 -p 10051 -s "2X-RAS" -k ss.name -o $a   
+    C:\Zabbix\scripts\zabbix_sender.exe -z {zabbix-server} -p {port} -s {host} -k vm-snapshot-watcher.ps1 -o $a   
 }
 
 
 #Cargamos el módulo de vmWare y nos conectamos a vCenter
 Add-PSSnapin vmware.vimautomation.core
-Connect-VIServer 192.168.0.41 -user ro_zabbix@vsphere.local -Password EstaP***Contr4seña
+Connect-VIServer {vSphere-server} -user ro_zabbix@vsphere.local -Password Esta*Contr4seña
 
 #Listamos las fechas de todas las instantaneas del entorno, calculamos la cantidad de entradas y almacenamos como contador para recorrer el array
 $query=Get-VM | Get-Snapshot |Select-Object Created
