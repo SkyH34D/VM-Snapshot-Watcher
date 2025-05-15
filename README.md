@@ -13,7 +13,7 @@
 - PowerShell (recomendado: versión 5 o superior)
 - VMware PowerCLI (vmware.vimautomation.core)
 - Acceso a un servidor vCenter
-- Zabbix Sender (`zabbix_sender.exe`) instalado localmente
+- Zabbix Sender (`zabbix_sender.exe`) instalado [localmente](https://www.zabbix.com/documentation/current/es/manpages/zabbix_sender)
 - Acceso a red al servidor Zabbix
 - Usuario Read-Only creado en el servidor vSphere, que luego será llamado por el cmdlet Connect-VIServer
 
