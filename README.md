@@ -32,7 +32,7 @@ C:\Zabbix\scripts\zabbix_sender.exe -z {zabbix-server} -p {port} -s {host} -k vm
 ## ▶️ Ejemplo de ejecución
 
 ```powershell
-.Vm-snapshot-watcher.ps1
+.vm-snapshot-watcher.ps1
 ```
 
 El script enviará una salida similar a:
