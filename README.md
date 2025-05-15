@@ -31,7 +31,7 @@ C:\Zabbix\scripts\zabbix_sender.exe -z 192.168.120.152 -p 10051 -s "2X-RAS" -k s
 ## ▶️ Ejemplo de ejecución
 
 ```powershell
-.m-snapshot-watcher.ps1
+.Vm-snapshot-watcher.ps1
 ```
 
 El script enviará una salida similar a:
