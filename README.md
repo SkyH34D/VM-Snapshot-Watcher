@@ -15,6 +15,7 @@
 - Acceso a un servidor vCenter
 - Zabbix Sender (`zabbix_sender.exe`) instalado localmente
 - Acceso a red al servidor Zabbix
+- Usuario Read-Only creado en el servidor vSphere, que luego será llamado por el cmdlet Connect-VIServer
 
 ## 🧪 Instalación y uso
 
@@ -22,11 +23,11 @@
 2. Edita las siguientes líneas del script para adaptarlas a tu entorno:
 
 ```powershell
-Connect-VIServer 192.168.0.41 -user ro_zabbix@vsphere.local -Password EstaP***Contr4seña
-C:\Zabbix\scripts\zabbix_sender.exe -z 192.168.120.152 -p 10051 -s "2X-RAS" -k ss.name -o $a
+Connect-VIServer {vsphere-server} -user ro_zabbix@vsphere.local -Password Esta*Contr4seña
+C:\Zabbix\scripts\zabbix_sender.exe -z {zabbix-server} -p {port} -s {host} -k vm-snapshot-watcher.ps1 -o $a
 ```
 
-3. Ejecuta el script manualmente o prográmalo en el Programador de tareas de Windows.
+3. Configura el zabbix trapper para recibir la monitorización en tu servidor zabbix. 
 
 ## ▶️ Ejemplo de ejecución
 
@@ -41,9 +42,7 @@ VM:BackupServer01, SS:DailySnapshot
 VM:AppServer02, SS:OldTestSnapshot
 ```
 
-Y reportará dicha información al servidor Zabbix configurado.
-
-Para la configuración del `zabbix_sender`, consulta la [documentación oficial de Zabbix](https://www.zabbix.com/documentation/current/en/manpages/zabbix_sender).
+Y reportará dicha información al servidor Zabbix configurado. Consulta la [documentación oficial de Zabbix](https://www.zabbix.com/documentation/current/en/manual/config/items/itemtypes/trapper) para más información.
 
 ## 🛡️ Autor
 
